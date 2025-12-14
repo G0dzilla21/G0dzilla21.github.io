@@ -37,6 +37,14 @@
     #about h2 { border-bottom: 2px solid #3b82f6; margin-bottom: 20px; padding-bottom: 8px; }
     #about p { margin-bottom: 16px; }
 
+  
+    #about img:hover {
+      transform: scale(1.05); /* slightly enlarges the image */
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* subtle shadow for depth */
+    }
+
+
+
     /* ===== SKILLS ===== */
     #skills h2 { border-bottom: 2px solid #3b82f6; margin-bottom: 20px; padding-bottom: 8px; }
     .skills-container {
@@ -115,7 +123,8 @@
   <!-- Photo -->
   <div style="flex:1; min-width:200px; text-align:center;">
     <img src="1683140669151.jpeg" alt="Cody Reeves" 
-         style="width:200px; height:200px; object-fit:cover; border-radius:50%; border:3px solid #3b82f6;">
+     style="width:250px; height:250px; object-fit:cover; border-radius:50%; border:3px solid #3b82f6;
+            transition: transform 0.3s, box-shadow 0.3s;">
   </div>
 
   <!-- Text -->
