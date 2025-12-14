@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cody Reeves | Data & Automation Engineer</title>
   <style>
-    /* ===== GLOBAL ===== */
     * { box-sizing: border-box; margin:0; padding:0; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -14,10 +13,10 @@
       line-height: 1.6;
       scroll-behavior: smooth;
     }
+
     a { text-decoration: none; color: #22c55e; transition: 0.3s; }
     a:hover { color: #3b82f6; }
 
-    /* ===== HEADER ===== */
     header {
       position: sticky;
       top:0;
@@ -34,29 +33,34 @@
     header p { color:#22c55e; font-weight:500; margin-top:4px; font-size:1rem; }
     nav a { margin-left: 16px; font-weight:500; }
 
-    /* ===== SECTIONS ===== */
     section { padding: 60px 24px; max-width: 960px; margin: auto; }
     section h2 { border-bottom: 2px solid #3b82f6; margin-bottom: 20px; padding-bottom: 8px; }
 
-    /* ===== ABOUT ===== */
-    #about { display:flex; flex-wrap:wrap; align-items:center; gap:30px; }
-    #about img {
-      width:250px;
-      height:250px;
-      object-fit:cover;
-      border-radius:50%;
-      border:3px solid #3b82f6;
-      transition: transform 0.3s, box-shadow 0.3s;
+    /* ABOUT */
+    #about-container {
+      display: block; 
+      text-align: center;
     }
-    #about img:hover {
+    #about-photo {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #3b82f6;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin: 0 auto 20px auto;
+    }
+    #about-photo:hover {
       transform: scale(1.05);
       box-shadow: 0 8px 20px rgba(0,0,0,0.5), 0 0 15px #3b82f6;
     }
-    #about div { flex:2; min-width:250px; }
 
-    /* ===== SKILLS ===== */
-    #skills .skills-container {
-      display: flex; flex-wrap: wrap; gap: 12px;
+    /* SKILLS */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
     }
     .skill-badge {
       background: #1e293b;
@@ -74,9 +78,8 @@
       background: #3b82f6;
       color: #f8fafc;
     }
-    .skill-icon { width: 20px; height: 20px; }
 
-    /* ===== PROJECTS ===== */
+    /* PROJECTS */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -97,18 +100,13 @@
     .project-card p { font-size: 0.95rem; }
     .project-impact { color:#22c55e; font-weight:500; margin-top:8px; }
 
-    /* ===== CONTACT ===== */
     #contact p { margin-bottom: 8px; }
 
-    /* ===== FOOTER ===== */
     footer { text-align:center; font-size:0.85rem; color:#9ca3af; margin:40px 0; }
 
-    /* ===== MEDIA ===== */
     @media (max-width: 600px){
       header { flex-direction: column; align-items: flex-start; }
       nav a { margin: 6px 8px 0 0; }
-      #about { flex-direction: column; align-items: center; text-align:center; }
-      #about div { flex:unset; }
     }
   </style>
 </head>
@@ -127,15 +125,10 @@
   </nav>
 </header>
 
-<!-- ===== ABOUT ===== -->
+<!-- ABOUT -->
 <section id="about">
-  <!-- Photo -->
-  <div>
-    <img src="1683140669151.jpeg" alt="Cody Reeves">
-  </div>
-
-  <!-- Text -->
-  <div>
+  <div id="about-container">
+    <img id="about-photo" src="1683140669151.jpeg" alt="Cody Reeves">
     <h2>About</h2>
     <p>
       I am a data professional passionate about automation, cloud-based data solutions, 
@@ -149,23 +142,23 @@
   </div>
 </section>
 
-<!-- ===== SKILLS ===== -->
+<!-- SKILLS -->
 <section id="skills">
   <h2>Skills</h2>
   <div class="skills-container">
-    <div class="skill-badge"><span class="skill-icon">🐍</span> Python</div>
-    <div class="skill-badge"><span class="skill-icon">📊</span> Power BI</div>
-    <div class="skill-badge"><span class="skill-icon">☁️</span> AWS</div>
-    <div class="skill-badge"><span class="skill-icon">☁️</span> GCP</div>
-    <div class="skill-badge"><span class="skill-icon">📈</span> Pandas / NumPy</div>
-    <div class="skill-badge"><span class="skill-icon">🗄️</span> SQL</div>
-    <div class="skill-badge"><span class="skill-icon">⚡</span> Power Automate</div>
-    <div class="skill-badge"><span class="skill-icon">💻</span> Flask / REST API</div>
-    <div class="skill-badge"><span class="skill-icon">🕸️</span> Web Scraping</div>
+    <div class="skill-badge">🐍 Python</div>
+    <div class="skill-badge">📊 Power BI</div>
+    <div class="skill-badge">☁️ AWS</div>
+    <div class="skill-badge">☁️ GCP</div>
+    <div class="skill-badge">📈 Pandas / NumPy</div>
+    <div class="skill-badge">🗄️ SQL</div>
+    <div class="skill-badge">⚡ Power Automate</div>
+    <div class="skill-badge">💻 Flask / REST API</div>
+    <div class="skill-badge">🕸️ Web Scraping</div>
   </div>
 </section>
 
-<!-- ===== PROJECTS ===== -->
+<!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
   <div class="projects-grid">
@@ -187,7 +180,7 @@
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
+<!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
   <p>Email: your.email@example.com</p>
@@ -201,24 +194,23 @@
   <p>© Cody Reeves</p>
 </footer>
 
-<!-- ===== FADE-IN SCROLL SCRIPT ===== -->
+<!-- FADE-IN SCROLL -->
 <script>
   const sections = document.querySelectorAll('section');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.style.opacity = 1;
-        entry.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
   sections.forEach(section => {
     section.style.opacity = 0;
     section.style.transform = 'translateY(20px)';
     section.style.transition = 'all 0.8s ease-out';
-    observer.observe(section);
   });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+  sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
