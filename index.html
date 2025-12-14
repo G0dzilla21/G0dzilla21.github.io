@@ -13,7 +13,6 @@
       line-height: 1.6;
       scroll-behavior: smooth;
     }
-
     a { text-decoration: none; color: #22c55e; transition: 0.3s; }
     a:hover { color: #3b82f6; }
 
@@ -100,8 +99,19 @@
     .project-card p { font-size: 0.95rem; }
     .project-impact { color:#22c55e; font-weight:500; margin-top:8px; }
 
-    #contact p { margin-bottom: 8px; }
+    /* EXPANDABLE DETAILS */
+    .project-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      margin-top:10px;
+      color: #cbd5e1;
+    }
+    .project-card.expanded .project-details {
+      max-height: 500px; /* adjust if needed */
+    }
 
+    #contact p { margin-bottom: 8px; }
     footer { text-align:center; font-size:0.85rem; color:#9ca3af; margin:40px 0; }
 
     @media (max-width: 600px){
@@ -128,7 +138,7 @@
 <!-- ABOUT -->
 <section id="about">
   <div id="about-container">
-    <img id="about-photo" src="1683140669151.jpeg" alt="Cody Reeves">
+    <img id="about-photo" src="yourphoto.jpg" alt="Cody Reeves">
     <h2>About</h2>
     <p>
       I am a data professional passionate about automation, cloud-based data solutions, 
@@ -162,21 +172,45 @@
 <section id="projects">
   <h2>Projects</h2>
   <div class="projects-grid">
-    <div class="project-card">
+
+    <!-- Project 1 -->
+    <div class="project-card" onclick="toggleDetails(this)">
       <h3>Market Basket Analysis Pipeline</h3>
       <p>Python pipeline on Google Cloud Run & Scheduler that ingests transactional data into BigQuery for analysis.</p>
       <p class="project-impact">Impact: Reduced manual data prep by 70%.</p>
+      <div class="project-details">
+        <p>• Built Python scripts to automate ETL process</p>
+        <p>• Scheduled pipeline in Google Cloud Scheduler</p>
+        <p>• Output stored in BigQuery for analytics</p>
+        <img src="market_basket_demo.png" alt="Market Basket Demo" style="width:100%; margin-top:10px; border-radius:8px;">
+      </div>
     </div>
-    <div class="project-card">
+
+    <!-- Project 2 -->
+    <div class="project-card" onclick="toggleDetails(this)">
       <h3>P&L Forecasting with Weather Data</h3>
       <p>Forecasting models for operational cost lines integrating external weather APIs to improve model accuracy.</p>
       <p class="project-impact">Impact: Increased forecast accuracy by 15%.</p>
+      <div class="project-details">
+        <p>• Combined historical P&L data with weather API inputs</p>
+        <p>• Developed predictive model in Python</p>
+        <p>• Dashboard visualization in Power BI</p>
+        <img src="forecast_demo.png" alt="Forecast Demo" style="width:100%; margin-top:10px; border-radius:8px;">
+      </div>
     </div>
-    <div class="project-card">
+
+    <!-- Project 3 -->
+    <div class="project-card" onclick="toggleDetails(this)">
       <h3>Automated Web Data Extraction</h3>
       <p>Python scripts automate data extraction from websites, with competitor pricing scraping planned.</p>
       <p class="project-impact">Impact: Saved 10+ hours/week in manual data collection.</p>
+      <div class="project-details">
+        <p>• Web scraping using Python and BeautifulSoup</p>
+        <p>• Data cleaned and exported to Excel & BigQuery</p>
+        <img src="web_scraping_demo.png" alt="Web Scraping Demo" style="width:100%; margin-top:10px; border-radius:8px;">
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -196,6 +230,7 @@
 
 <!-- FADE-IN SCROLL -->
 <script>
+  // Fade-in sections
   const sections = document.querySelectorAll('section');
   sections.forEach(section => {
     section.style.opacity = 0;
@@ -211,6 +246,11 @@
     });
   }, { threshold: 0.1 });
   sections.forEach(section => observer.observe(section));
+
+  // Expand/collapse project details
+  function toggleDetails(card) {
+    card.classList.toggle('expanded');
+  }
 </script>
 
 </body>
